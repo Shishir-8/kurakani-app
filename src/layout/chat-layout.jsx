@@ -1,24 +1,20 @@
 import ChatPage from "../pages/chat-page/chart-page";
-import ChatHeader from "../pages/chat-page/chat-header";
 import SidebarPage from "../pages/chat-page/sidebar";
-
 
 export default function ChatLayout() {
   return (
-    <div className="h-screen flex">
-      <div className="w-80">
+    <div className="h-screen w-full overflow-hidden md:flex">
+      
+      {/* Sidebar */}
+      <aside className="max-w-sm w-full shrink-0 border-r border-base-300">
         <SidebarPage />
-      </div>
+      </aside>
 
-      <div className="flex-1 flex flex-col h-screen">
-        <div className="shrink-0">
-          <ChatHeader />
-        </div>
+      {/* Chat */}
+      <main className="flex-1 min-w-0">
+        <ChatPage />
+      </main>
 
-        <div className="flex-1 overflow-y-auto">
-          <ChatPage />
-        </div>
-      </div>
     </div>
   );
 }

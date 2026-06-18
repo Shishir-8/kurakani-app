@@ -16,11 +16,6 @@ export const signUp = async (email, password, fullName) => {
       fullName,
       email: user.email,
     });
-
-    await setDoc(doc(db, "chats", user.uid), {
-      chatData: [],
-    });
-
     return user;
 };
 

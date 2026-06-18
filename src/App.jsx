@@ -11,18 +11,6 @@ import { onAuthStateChanged } from "firebase/auth";
 import { auth } from "./config/firebase";
 
 const App = () => {
-  const navigate = useNavigate()
-
-  useEffect(() => {
-    onAuthStateChanged(auth, async (user) => {
-      if(user) {
-        navigate('/chat')
-      } else {
-        navigate('/')
-      }
-    })
-
-  }, [])
   return (
     <>
       <Routes>
@@ -30,11 +18,12 @@ const App = () => {
         <Route path="/signup" element={<SignUp />} />
 
         <Route element={<ProtectedRoute />}>
-          <Route path="/chat" element={<ChatLayout />} />
-          <Route path="/chat/:id" element={<ChatPage />} />
+          <Route path="/chat" element={<ChatLayout />}>
+            <Route path="/chat/:id" element={<ChatPage />} />
+          </Route>
+
           <Route path="/profile" element={<ProfileUpdatePage />} />
         </Route>
-
       </Routes>
 
       <Toaster />

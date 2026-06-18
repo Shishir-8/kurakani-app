@@ -46,7 +46,7 @@ export default function SignUp() {
       toast.success("Registered Succesfully");
       navigate("/");
     } catch (error) {
-      toast.error(error.message);
+      toast.error(error?.code.split("/")[1]);
     } finally {
       setLoading(false);
     }

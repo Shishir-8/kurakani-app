@@ -2,20 +2,14 @@ import { LogOut } from "lucide-react";
 import { logoutUser } from "../../services/auth-service";
 import { useNavigate } from "react-router-dom";
 import toast from "react-hot-toast";
+import { useChatStore } from "../../store/use-chat-store";
+import { auth } from "../../config/firebase";
 
 export default function ChatHeader() {
   const navigate = useNavigate();
-  const handleLogout = async () => {
-    try {
-      await logoutUser();
-      toast.success("Logged out successfully");
-      navigate("/");
-    } catch (error) {
-      toast.error(error.message);
-    }
-  };
+  const {selectedUser} = useChatStore()
   return (
-    <div className="navbar bg-base-100 border-b border-white/10 px-4 h-16 flex items-center justify-between">
+    <div className="navbar bg-base-300 border-b border-white/10 px-4 h-18 flex items-center justify-between">
       <div className="flex items-center gap-3">
         <div className="avatar">
           <div className="w-10 rounded-full ring ring-base-300">
@@ -24,7 +18,7 @@ export default function ChatHeader() {
         </div>
 
         <div className="leading-tight">
-          <h2 className="text-sm font-semibold text-base-content">John Doe</h2>
+          <h2 className="text-sm font-semibold text-base-content">{selectedUser?.fullName}</h2>
 
           <p className="text-xs text-success flex items-center gap-1">
             <span className="w-1 h-1 bg-success rounded-full"></span>
@@ -32,14 +26,6 @@ export default function ChatHeader() {
           </p>
         </div>
       </div>
-
-      <button
-        onClick={handleLogout}
-        className="btn btn-ghost bg-primary rounded-lg text-base-content hover:bg-base-primary"
-      >
-        <LogOut size={18} />
-        <span>Logout</span>
-      </button>
     </div>
   );
 }
