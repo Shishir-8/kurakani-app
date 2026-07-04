@@ -8,10 +8,12 @@ import { useChatStore } from "../../store/use-chat-store";
 import { onAuthStateChanged } from "firebase/auth";
 import { logoutUser } from "../../services/auth-service";
 import toast from "react-hot-toast";
+import LogoutModal from "../../components/logout-modal";
 
 export default function SidebarPage() {
   const navigate = useNavigate();
   const { users, setUsers } = useUsersStore();
+  const [open, setOpen] = useState(false);
   const { selectedUser, setSelectedUser, clearSelectedUser } = useChatStore();
   const user = auth.currentUser;
 
@@ -26,7 +28,7 @@ export default function SidebarPage() {
           id: doc.id,
           ...doc.data(),
         }))
-        .filter((user) => user.id !== currentUser.uid); 
+        .filter((user) => user.id !== currentUser.uid);
 
       setUsers(data);
     });
@@ -36,14 +38,14 @@ export default function SidebarPage() {
 
   const handleLogout = async () => {
     try {
-      await logoutUser();
+      await logoutUser()
       clearSelectedUser()
-      toast.success("Logged out successfully");
-      navigate("/");
+      toast.success("Logout Succesfully")
+      
     } catch (error) {
-      toast.error(error.message);
+      console.log(error)
     }
-  };
+  }
 
   return (
     <div className="flex h-screen flex-col bg-base-300 border-r border-r-white/10">
@@ -113,11 +115,17 @@ export default function SidebarPage() {
           </div>
 
           <button
-            onClick={handleLogout}
+            onClick={() => setOpen(true)}
             className="btn btn-error btn-sm btn-circle"
           >
             <LogOut size={16} />
           </button>
+
+          <LogoutModal
+            isOpen={open}
+            onClose={() => setOpen(false)}
+            onLogout={handleLogout}
+          />
         </div>
       </div>
     </div>

@@ -3,6 +3,7 @@ import { Mail, Lock, AlertCircle } from "lucide-react";
 import { Link, useNavigate } from "react-router-dom";
 import { loginuser } from "../../services/auth-service";
 import toast from "react-hot-toast";
+import GoogleLogin from "./google-login";
 
 export default function Login() {
   const [loginData, setLoginData] = useState({
@@ -12,8 +13,8 @@ export default function Login() {
   });
 
   const [error, setError] = useState("");
-  const [loading, setLoading] = useState(false)
-  const navigate = useNavigate()
+  const [loading, setLoading] = useState(false);
+  const navigate = useNavigate();
 
   const handleChange = (e) => {
     const { name, value, type, checked } = e.target;
@@ -34,22 +35,20 @@ export default function Login() {
     }
 
     try {
-      setLoading(true)
-      const res = await loginuser(loginData.email, loginData.password)
-      toast.success("Login Successfull")
-      navigate('/chat')
+      setLoading(true);
+      const res = await loginuser(loginData.email, loginData.password);
+      toast.success("Login Successfull");
+      navigate("/chat");
     } catch (error) {
-      toast.error(error?.code.split("/")[1])
+      toast.error(error?.code.split("/")[1]);
     } finally {
-      setLoading(false)
+      setLoading(false);
     }
   };
 
   return (
     <div className="min-h-screen flex items-center justify-center bg-base-200 px-4">
-
       <div className="w-full max-w-sm">
-
         {/* Error */}
         {error && (
           <div className="alert alert-error mb-4 shadow-lg">
@@ -61,7 +60,6 @@ export default function Login() {
         {/* Card */}
         <form onSubmit={handleSubmit} className="card bg-base-100 shadow-xl">
           <div className="card-body">
-
             <h2 className="text-center text-2xl font-bold text-base-content">
               Welcome back 👋
             </h2>
@@ -96,7 +94,6 @@ export default function Login() {
             </label>
 
             <div className="flex items-center justify-between mt-3 text-xs md:text-sm">
-
               <label className="flex items-center gap-2 cursor-pointer">
                 <input
                   type="checkbox"
@@ -108,30 +105,35 @@ export default function Login() {
                 Remember me
               </label>
 
-              <a className="link link-primary text-xs">
-                Forgot password?
-              </a>
+              <a className="link link-primary text-xs">Forgot password?</a>
             </div>
 
             {/* Button */}
-            <button
-              type="submit"
-              className="btn btn-primary mt-5 w-full"
-            >
-             {loading ? <span className="loading loading-spinner"></span>: "Login"}
+            <button type="submit" className="btn btn-primary mt-5 w-full">
+              {loading ? (
+                <span className="loading loading-spinner"></span>
+              ) : (
+                "Login"
+              )}
             </button>
 
+            <div className="flex items-center my-1">
+              <div className="flex-1 border-t border-gray-300"></div>
+              <span className="px-4 text-sm text-gray-500">OR</span>
+              <div className="flex-1 border-t border-gray-300"></div>
+            </div>
+
+            <GoogleLogin />
+
             {/* Footer */}
-            <p className="text-center text-sm mt-4 opacity-70">
+            <p className="text-center text-sm mt-2 opacity-70">
               Don’t have an account?{" "}
               <Link to="/signup" className="link link-primary">
                 Sign up
               </Link>
             </p>
-
           </div>
         </form>
-
       </div>
     </div>
   );

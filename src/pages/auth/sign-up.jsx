@@ -4,6 +4,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { signUp } from "../../services/auth-service";
 import toast from "react-hot-toast";
 import { validateSignup } from "../../lib/auth-validation";
+import GoogleLogin from "./google-login";
 
 export default function SignUp() {
   const [signupData, setSignupData] = useState({
@@ -131,11 +132,23 @@ export default function SignUp() {
               onClick={handleSubmit}
               className="btn btn-primary mt-5 w-full"
             >
-             {loading ? <span className="loading loading-spinner"></span>: "Sign Up"}
+              {loading ? (
+                <span className="loading loading-spinner"></span>
+              ) : (
+                "Sign Up"
+              )}
             </button>
 
+            <div className="flex items-center my-1">
+              <div className="flex-1 border-t border-gray-300"></div>
+              <span className="px-4 text-sm text-gray-500">OR</span>
+              <div className="flex-1 border-t border-gray-300"></div>
+            </div>
+
+            <GoogleLogin />
+
             {/* Footer */}
-            <p className="text-center text-sm mt-4 opacity-70">
+            <p className="text-center text-sm mt-2 opacity-70">
               Already have an account?{" "}
               <Link to="/" className="link link-primary">
                 Login

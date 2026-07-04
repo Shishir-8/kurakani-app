@@ -69,10 +69,10 @@ if (!selectedUser) {
       </div>
 
       <div className="flex-1 px-12 py-6 space-y-4 overflow-y-auto ">
-        {messages.map((msg) => {
+        {messages.map((msg, index) => {
           const isMe = msg.senderId ===user.uid
           return (
-            <div className={`chat ${isMe? "chat-end": "chat-start"}`}>
+            <div key={index} className={`chat ${isMe? "chat-end": "chat-start"}`}>
               <div className="chat-image avatar">
                 <div className="w-10 rounded-full">
                   <img
