@@ -82,12 +82,12 @@ export default function Login() {
 
           {/* ================= ERROR ================= */}
           {error && (
-            <div className="mb-5 rounded-xl border border-red-200 bg-red-50 px-4 py-3 text-sm text-red-600">
+            <div className="mb-4 rounded-xl border border-red-200 bg-red-50 px-4 py-3 text-sm text-red-600">
               {error}
             </div>
           )}
 
-          {/* ================= EMAIL ================= */}
+
           <div>
             <label
               htmlFor="email"
@@ -127,7 +127,7 @@ export default function Login() {
           </div>
 
           {/* ================= PASSWORD ================= */}
-          <div className="mt-5">
+          <div className="mt-4">
             <label
               htmlFor="password"
               className="mb-2 block text-sm font-medium text-base-content"
@@ -163,8 +163,7 @@ export default function Login() {
             </div>
           </div>
 
-          {/* ================= REMEMBER / FORGOT ================= */}
-          <div className="mt-5 flex items-center justify-between">
+          <div className="mt-4 flex items-center justify-between">
             <label className="flex cursor-pointer items-center gap-2">
               <input
                 type="checkbox"
@@ -192,7 +191,7 @@ export default function Login() {
           <button
             type="submit"
             disabled={loading}
-            className="mt-7 flex h-12 w-full cursor-pointer items-center justify-center rounded-xl bg-indigo-500 text-sm font-semibold text-white shadow-sm transition-all duration-200 hover:bg-indigo-600 hover:shadow-md disabled:cursor-not-allowed disabled:opacity-60"
+            className="mt-6 flex h-12 w-full cursor-pointer items-center justify-center rounded-xl bg-indigo-500 text-sm font-semibold text-white shadow-sm transition-all duration-200 hover:bg-indigo-600 hover:shadow-md disabled:cursor-not-allowed disabled:opacity-60"
           >
             {loading ? (
               <span className="loading loading-spinner loading-sm" />
@@ -202,7 +201,7 @@ export default function Login() {
           </button>
 
           {/* ================= GOOGLE SEPARATOR ================= */}
-          <div className="my-6 flex items-center gap-4">
+          <div className="my-4 flex items-center gap-4">
             <div className="h-px flex-1 bg-base-content/10" />
 
             <span className="whitespace-nowrap text-xs font-medium uppercase tracking-wide text-base-content/40">
@@ -218,7 +217,7 @@ export default function Login() {
           </div>
 
           {/* ================= SIGN UP ================= */}
-          <p className="mt-6 text-center text-sm text-base-content/60">
+          <p className="mt-4 text-center text-sm text-base-content/60">
             Don't have an account?{" "}
             <Link
               to="/signup"

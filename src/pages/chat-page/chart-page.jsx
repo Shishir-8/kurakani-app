@@ -49,9 +49,9 @@ export default function ChatPage() {
             Welcome to Kura Kanii 👋
           </h2>
 
-          <p className="text-base-content/60">
-            Select a conversation from the sidebar to start chatting.
-            Your messages will appear here in real time.
+          <p className="mt-3 text-sm leading-6 text-base-content/50 md:text-base">
+            Select a conversation from the sidebar to start chatting with
+            your friends.
           </p>
         </div>
       </div>

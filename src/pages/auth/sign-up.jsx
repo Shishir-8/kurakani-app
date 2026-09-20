@@ -71,7 +71,7 @@ export default function SignUp() {
         >
 
           {/* ================= HEADER ================= */}
-          <div className="mb-7">
+          <div className="mb-6">
             <h2 className="text-3xl font-semibold tracking-tight text-base-content sm:text-4xl">
               Create account
             </h2>
@@ -83,7 +83,7 @@ export default function SignUp() {
 
           {/* ================= ERROR ================= */}
           {valerror && (
-            <div className="mb-5 rounded-xl border border-red-200 bg-red-50 px-4 py-3 text-sm text-red-600">
+            <div className="mb-4 rounded-xl border border-red-200 bg-red-50 px-4 py-3 text-sm text-red-600">
               {valerror}
             </div>
           )}
@@ -138,7 +138,7 @@ export default function SignUp() {
           </div>
 
           {/* ================= EMAIL ================= */}
-          <div className="mt-5">
+          <div className="mt-4">
             <label
               htmlFor="email"
               className="mb-2 block text-sm font-medium text-base-content"
@@ -178,8 +178,7 @@ export default function SignUp() {
             </div>
           </div>
 
-          {/* ================= PASSWORD ================= */}
-          <div className="mt-5">
+          <div className="mt-4">
             <label
               htmlFor="password"
               className="mb-2 block text-sm font-medium text-base-content"
@@ -218,7 +217,7 @@ export default function SignUp() {
           </div>
 
           {/* ================= CONFIRM PASSWORD ================= */}
-          <div className="mt-5">
+          <div className="mt-4">
             <label
               htmlFor="confirmPassword"
               className="mb-2 block text-sm font-medium text-base-content"
@@ -260,7 +259,7 @@ export default function SignUp() {
           <button
             type="submit"
             disabled={loading}
-            className="mt-7 flex h-12 w-full cursor-pointer items-center justify-center rounded-xl bg-indigo-500 text-sm font-semibold text-white shadow-sm transition-all duration-200 hover:bg-indigo-600 hover:shadow-md disabled:cursor-not-allowed disabled:opacity-60"
+            className="mt-6 flex h-12 w-full cursor-pointer items-center justify-center rounded-xl bg-indigo-500 text-sm font-semibold text-white shadow-sm transition-all duration-200 hover:bg-indigo-600 hover:shadow-md disabled:cursor-not-allowed disabled:opacity-60"
           >
             {loading ? (
               <span className="loading loading-spinner loading-sm" />
@@ -270,7 +269,7 @@ export default function SignUp() {
           </button>
 
           {/* ================= GOOGLE SEPARATOR ================= */}
-          <div className="my-6 flex items-center gap-4">
+          <div className="my-4 flex items-center gap-4">
             <div className="h-px flex-1 bg-base-content/10" />
 
             <span className="whitespace-nowrap text-xs font-medium uppercase tracking-wide text-base-content/40">
