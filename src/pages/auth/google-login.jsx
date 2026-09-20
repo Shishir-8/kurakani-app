@@ -21,7 +21,7 @@ const GoogleLogin = () => {
 
 
   return (
-    <button type="button" onClick={handleGoogleLogin} className="flex items-center justify-center gap-3 w-full rounded-md border btn border-gray-300 bg-white px-4 text-gray-700 font-medium shadow-sm transition hover:bg-gray-50 hover:shadow-md">
+    <button type="button" onClick={handleGoogleLogin} className="flex items-center justify-center gap-3 w-full rounded-xl h-12 border btn border-gray-300 bg-white px-4 text-gray-700 font-medium shadow-sm transition hover:bg-gray-50 hover:shadow-md">
       <svg
         className="h-5 w-5"
         viewBox="0 0 48 48"

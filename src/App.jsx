@@ -9,13 +9,16 @@ import { Toaster } from "react-hot-toast";
 import ProtectedRoute from "./layout/protected-route";
 import { onAuthStateChanged } from "firebase/auth";
 import { auth } from "./config/firebase";
+import AuthLayout from "./layout/auth-layout";
 
 const App = () => {
   return (
     <>
       <Routes>
-        <Route path="/" element={<Login />} />
-        <Route path="/signup" element={<SignUp />} />
+        <Route element={<AuthLayout />}>
+          <Route path="/" element={<Login />} />
+          <Route path="/signup" element={<SignUp />} />
+        </Route>
 
         <Route element={<ProtectedRoute />}>
           <Route path="/chat" element={<ChatLayout />}>

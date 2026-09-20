@@ -40,13 +40,12 @@ export default function SidebarPage() {
     try {
       await logoutUser()
       clearSelectedUser()
+      navigate('/')
       toast.success("Logout Succesfully")
-      
     } catch (error) {
       console.log(error)
     }
   }
-
   return (
     <div className="flex h-screen flex-col bg-base-300 border-r border-r-white/10">
       {/* Header */}
